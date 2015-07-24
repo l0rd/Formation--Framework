@@ -198,6 +198,30 @@ module.exports = function (grunt) {
         },
         src: 'dist/reveal/run*.js'
       }
+    },
+    copy: {
+      main: {
+        files: [
+          {
+            expand: true, 
+            cwd: frameworkPath, 
+            src: 'index.html', 
+            dest: 'slides.html', 
+            rename: function(dest, src) {
+              return frameworkPath + '/' + dest;
+            }
+          },
+          {
+            expand: true, 
+            cwd: frameworkPath, 
+            src: 'summary.html', 
+            dest: 'index.html', 
+            rename: function(dest, src) {
+              return frameworkPath + '/' + dest;
+            }
+          }
+        ]
+      }
     }
   });
 
